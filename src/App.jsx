@@ -1,28 +1,24 @@
-import { useState } from 'react'
+import React, { useEffect } from 'react';
+import Navbar from './components/Navbar.jsx';
+import Hero from './components/Hero.jsx';
+import Sections from './components/Sections.jsx';
+import Projects from './components/Projects.jsx';
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  useEffect(() => {
+    document.title = 'Adharsh S | Creative Developer Portfolio';
+    document.documentElement.style.scrollBehavior = 'smooth';
+  }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
+    <div className="min-h-screen bg-slate-950 text-white font-inter">
+      <Navbar />
+      <Hero />
+      <Sections />
+      <Projects />
+      <footer className="border-t border-slate-800/60 bg-slate-950/80 py-8 text-center text-slate-400">
+        <p>© {new Date().getFullYear()} Adharsh S — Crafted with passion for web, AI, and great UX.</p>
+      </footer>
     </div>
-  )
+  );
 }
-
-export default App
